@@ -1,0 +1,345 @@
+@font-face{
+    font-family: Solari;
+    src: url('Solari.ttf')
+}
+
+@font-face{
+    font-family: CaviarDreams;
+    src: url('Caviar_Dreams_Bold.ttf')
+}
+
+@font-face{
+    font-family: Laneup;
+    src: url('LANENAR_.ttf')
+}
+
+html {
+    font-family: 'CaviarDreams' !important;
+}
+
+.work-card{
+	width: 100%;
+	height: 100%;
+	border-radius: 10px;
+	padding: 10px;
+}
+
+.work-card-wrapper{
+	min-width: 218px;
+	display: inline-block;
+	min-height: 131px;
+	margin-right: 9px;
+	margin-bottom: 0px;
+	vertical-align: top;
+}
+
+.active{
+	border: 5px solid black;
+	background: gold;
+	transition:  cubic-bezier(0.255, 0.255, 0.255, 0.255) 0.2s;
+}
+
+body {
+    /*background-image: url("wp.jpg");*/
+	background-repeat: round;
+	background-color: #e8e8e8;
+	height: 100%;
+}
+
+.inactive{
+	border: 1px solid grey;
+	background: silver;
+	transition:  cubic-bezier(0.255, 0.255, 0.255, 0.255) 0.2s;
+}
+
+.project-title {
+	height: 50px;
+	width: 100%;
+	font-size: larger;
+	border: none;
+	background-color: initial;
+	font-size: 25px;
+}
+
+.job-title {
+	height: 30px;
+	width: 100%;
+	font-size: 26px;
+	border: none;
+	background-color: initial;
+	font-size: 20px;
+	color: white !important;
+	font-family: inherit;
+}
+
+.visible{
+	opacity: 1;
+}
+
+.not-visible{
+	opacity: 0;
+}
+
+.plus-icon{
+	font-size: 31px;
+	text-align: center;
+	font-family: monospace;
+	cursor: pointer;
+}
+
+.close-icon{
+	position: relative;
+	left: 21px;
+	bottom: 5px;
+	z-index: 2;
+	font-family: monospace;
+	font-size: 22px;
+}
+
+.add-project-icon{
+	position: relative;
+	left: 4px;
+	bottom: 14px;
+	z-index: 2;
+	font-family: monospace;
+}
+
+.time-h1{
+	margin-left: auto;
+	margin-right: auto;
+	display: table;
+	color: white;
+	margin-top: 10px;
+	width: 100%;
+	text-align: center;
+}
+
+.add-button {
+	webkit-border-radius: 50%;
+	-moz-border-radius: 50%;
+	border-radius: 50%;
+	border: none;
+	margin-left: 10px;
+	/* bottom: 24px; */
+	-webkit-box-shadow: 0px 2px 10px rgba(0,0,0,.3),0px 0px 1px rgba(0,0,0,.1),inset 0px 1px 0px rgba(255,255,255,.25),inset 0px -1px 0px rgba(0,0,0,.15);
+	-moz-box-shadow: 0px 2px 10px rgba(0,0,0,.3),0px 0px 1px rgba(0,0,0,.1),inset 0px 1px 0px rgba(255,255,255,.25),inset 0px -1px 0px rgba(0,0,0,.15);
+	box-shadow: 0px 2px 10px rgba(0,0,0,.3),0px 0px 1px rgba(0,0,0,.1),inset 0px 1px 0px rgba(255,255,255,.25),inset 0px -1px 0px rgba(0,0,0,.15);
+	cursor: pointer;
+	height: 56px;
+	display: inline-block;
+	transition-duration: 0.25s;
+	-webkit-transition-property: background-color,-webkit-box-shadow;
+	transition-property: background-color,box-shadow;
+	/* right: 24px; */
+	width: 56px;
+	z-index: 1;
+	margin-top: 10px;
+	border-radius: 50%;
+	width: 56px;
+}
+
+.add-job-button {
+	width: 50px;
+	height: 50px;
+	background-color: transparent;
+	transition-duration: 0.25s;
+	-webkit-transition-property: background-color,-webkit-box-shadow;
+	transition-property: background-color,box-shadow;
+	-webkit-box-shadow: 0px 2px 10px rgba(0,0,0,.3),0px 0px 1px rgba(0,0,0,.1),inset 0px 1px 0px rgba(255,255,255,.25),inset 0px -1px 0px rgba(0,0,0,.15);
+	-moz-box-shadow: 0px 2px 10px rgba(0,0,0,.3),0px 0px 1px rgba(0,0,0,.1),inset 0px 1px 0px rgba(255,255,255,.25),inset 0px -1px 0px rgba(0,0,0,.15);
+	box-shadow: 0px 2px 10px rgba(0,0,0,.3),0px 0px 1px rgba(0,0,0,.1),inset 0px 1px 0px rgba(255,255,255,.25),inset 0px -1px 0px rgba(0,0,0,.15);
+	border-radius: 50%;
+}
+
+.add-job-button:hover{
+	background-color: darkred;
+}
+
+.menu-button {
+	cursor: pointer;
+	border-radius: 7%;
+	width: 172px;
+	height: 50px;
+	background-color: transparent;
+	transition-duration: 0.25s;
+	-webkit-transition-property: background-color,-webkit-box-shadow;
+	transition-property: background-color,box-shadow;
+	-webkit-box-shadow: 0px 2px 10px rgba(0,0,0,.3),0px 0px 1px rgba(0,0,0,.1),inset 0px 1px 0px rgba(255,255,255,.25),inset 0px -1px 0px rgba(0,0,0,.15);
+	-moz-box-shadow: 0px 2px 10px rgba(0,0,0,.3),0px 0px 1px rgba(0,0,0,.1),inset 0px 1px 0px rgba(255,255,255,.25),inset 0px -1px 0px rgba(0,0,0,.15);
+	box-shadow: 0px 2px 10px rgba(0,0,0,.3),0px 0px 1px rgba(0,0,0,.1),inset 0px 1px 0px rgba(255,255,255,.25),inset 0px -1px 0px rgba(0,0,0,.15);
+}
+
+.menu-button:hover{
+	background-color: darkred;
+}
+
+.menu-button-active {
+	background-color: #2aabd2;
+}
+
+.menu-button-active {
+	background-color: transparent;
+}
+
+.close-button {
+	webkit-border-radius: 50%;
+	-moz-border-radius: 50%;
+	border-radius: 50%;
+	border: none;
+	-webkit-box-shadow: 0px 2px 10px rgba(0,0,0,.3),0px 0px 1px rgba(0,0,0,.1),inset 0px 1px 0px rgba(255,255,255,.25),inset 0px -1px 0px rgba(0,0,0,.15);
+	-moz-box-shadow: 0px 2px 10px rgba(0,0,0,.3),0px 0px 1px rgba(0,0,0,.1),inset 0px 1px 0px rgba(255,255,255,.25),inset 0px -1px 0px rgba(0,0,0,.15);
+	box-shadow: 0px 2px 10px rgba(0,0,0,.3),0px 0px 1px rgba(0,0,0,.1),inset 0px 1px 0px rgba(255,255,255,.25),inset 0px -1px 0px rgba(0,0,0,.15);
+	cursor: pointer;
+	height: 56px;
+	transition-duration: 0.25s;
+	-webkit-transition-property: background-color,-webkit-box-shadow;
+	transition-property: background-color,box-shadow;
+	float: right;
+	width: 56px;
+	z-index: 1;
+}
+
+.close-button:hover{
+	background-color: darkred;
+}
+
+.work-card-close-btn {
+	float: right;
+	cursor: pointer;
+	font-weight: bold;
+}
+
+.delete-x:hover {
+	display: block;
+}
+
+.delete-x{
+	display: none;
+}
+
+.task-done {
+	text-decoration: line-through;
+}
+
+
+.wa-actions-menu li a{
+	text-align: left;
+	border-radius: 0;
+    color: white;
+    cursor: pointer;
+    display: block;
+    align-items: inherit;
+    line-height: 40px;
+    margin: 0;
+    max-height: 40px;
+    overflow: hidden;
+    padding: 0px 16px;
+    text-align: left;
+    text-decoration: none;
+    white-space: normal;
+    width: 100%;
+	font-weight: 600;
+}
+
+.row-input{
+    width: 100%;
+    height: 40px;
+    padding-left: 16px;
+    border: none;
+	border-color: transparent;
+}
+
+.row-input:focus{
+	outline: none;
+}
+
+.example-animate-container {
+    list-style:none;
+    margin:0;
+    padding:0 10px;
+}
+
+.animate-repeat {
+    line-height:20px;
+    list-style:none;
+    box-sizing:border-box;
+}
+
+.animate-repeat.ng-move,
+.animate-repeat.ng-enter,
+.animate-repeat.ng-leave {
+    transition:all linear 0.2s;
+}
+
+.animate-repeat.ng-leave.ng-leave-active,
+.animate-repeat.ng-move,
+.animate-repeat.ng-enter {
+    max-height: 20px;
+}
+
+.animate-repeat.ng-leave,
+.animate-repeat.ng-move.ng-move-active,
+.animate-repeat.ng-enter.ng-enter-active {
+    max-height: 20px;
+}
+
+.last-log {
+    font-weight: bold;
+}
+
+.md-button.priority-selector {
+    z-index: 0 !important;
+    font-size: 30px;
+}
+
+.work-card-header {
+    margin: 0px !important;
+}
+
+
+.sidemenu {
+	list-style: none;
+	padding: 0;
+	max-width: 100%;
+	overflow-x: hidden;
+	transition: 0.75s cubic-bezier(0.35, 0, 0.25, 1);
+	transition-property: height;
+}
+
+.sidemenu li {
+	color: white !important;
+	width: 100%;
+	margin: 0 !important;
+	text-align: left;
+	padding-left: 20px;
+}
+
+.padded {
+	padding-left: 20px !important;
+}
+
+.md-subheader-inner {
+	padding-left: 7px !important;
+}
+
+.workcard-action-btn {
+	text-align: left !important;
+	padding-left: 13px !important;
+}
+
+.about-dialog {
+	padding: 15px;
+}
+
+.about-dialog p {
+	text-align: center;
+}
+
+.tipHide {
+	opacity: 0;
+	transition: 0.5s linear;
+}
+.tipShow {
+	opacity: 1;
+	transition: 0.5s linear;
+}

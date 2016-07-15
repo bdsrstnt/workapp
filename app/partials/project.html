@@ -1,0 +1,41 @@
+<section>
+    <!--<md-subheader>-->
+        <!--<md-input-container class="md-block" flex-gt-sm>-->
+            <!--<label>{{'SEARCH' | translate}}</label>-->
+            <!--<input class="project-title" ng-model="search.jobTitle" type="text" />-->
+        <!--</md-input-container>-->
+    <!--</md-subheader>-->
+    <!--<md-header flex="100">-->
+        <!--&lt;!&ndash;<md-input-container class="md-block" flex-gt-sm>&ndash;&gt;-->
+            <!--&lt;!&ndash;<label>{{'PROJECT.TITLE' | translate}}</label>&ndash;&gt;-->
+            <!--&lt;!&ndash;<input class="project-title" ng-model="project.projectTitle" type="text" />&ndash;&gt;-->
+        <!--&lt;!&ndash;</md-input-container>&ndash;&gt;-->
+        <!--<md-button ng-click="addJob()">{{'ADD.JOB' | translate}}</md-button>-->
+        <!--<md-button ng-show="visible" ng-click="visible = false">{{'HIDE.JOBS' | translate}}</md-button>-->
+        <!--<md-button ng-hide="visible" ng-click="visible = true">{{'SHOW.JOBS' | translate}}</md-button>-->
+        <!--<md-button ng-click="showSummary()">{{'SHOW.SUMMARY' | translate}}</md-button>-->
+        <!--<md-input-container flex>-->
+            <!--<label>-->
+                <!--{{'COLOR' | translate}}-->
+            <!--</label>-->
+            <!--<md-select ng-model="project.color">-->
+                <!--<md-option ng-repeat="color in colors" value="{{color}}" ng-style="{'color': color}">-->
+                    <!--{{color}}-->
+                <!--</md-option>-->
+            <!--</md-select>-->
+        <!--</md-input-container>-->
+        <!--<md-input-container flex>-->
+            <!--<label>-->
+                <!--{{'JOB.ORDER' | translate}}-->
+            <!--</label>-->
+            <!--<md-select ng-model="project.orderBy">-->
+                <!--<md-option ng-repeat="o in orderByList" value="{{o}}"">-->
+                    <!--{{o}}-->
+                <!--</md-option>-->
+            <!--</md-select>-->
+        <!--</md-input-container>-->
+    <!--</md-header>-->
+    <md-content layout="row" layout-xs="column" flex="100" layout-wrap ng-show="visible">
+        <work-card ng-repeat="j in project.jobs | filter:search | orderBy: project.orderBy" job="j" index="$index" job-id="id{{$index}}" color="project.color"></work-card>
+    </md-content>
+</section>

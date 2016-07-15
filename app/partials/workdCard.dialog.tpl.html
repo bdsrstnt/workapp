@@ -1,0 +1,26 @@
+<md-dialog aria-label="M{'DETAILS' | translate}}">
+    <form>
+        <md-toolbar style="margin-bottom: 30px;">
+            <md-subheader flex="100">
+                <div class="col-xs-12 col-lg-6">
+                    <input type="text" placeholder="type log here" class="row-input" ng-model="logInput" ng-enter="addLog()"/>
+                </div>
+            </md-subheader>
+        </md-toolbar>
+        <md-dialog-content style="width:800px; height:810px;overflow-x: hidden;">
+            <div class="col-lg-3"></div>
+            <section class="example-animate-container">
+                <div class="col-xs-12 animate-repeat" ng-repeat="log in logs">
+                    <div class="col-xs-12 col-lg-6" ng-class="{'last-log': $index === logs.length - 1}">
+                        > {{log.time | date:'hh:mm'}}: {{log.text}}
+                    </div>
+                </div>
+            </section>
+        </md-dialog-content>
+        <md-dialog-actions layout="row">
+            <md-button class="md-accent green" ng-click="closeDialog()" style="margin-right:20px;" >
+                {{'CLOSE' | translate}}
+            </md-button>
+        </md-dialog-actions>
+    </form>
+</md-dialog>

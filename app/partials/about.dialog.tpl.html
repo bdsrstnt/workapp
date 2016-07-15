@@ -1,0 +1,28 @@
+<md-dialog ng-controller="SimpleDialogCtrl">
+    <form>
+        <md-toolbar>
+            <div class="md-toolbar-tools">
+                <h2>{{'ABOUT' | translate}}</h2>
+            </div>
+        </md-toolbar>
+        <md-dialog-content class="about-dialog">
+            <p>
+                {{'ABOUT.DIALOG.TEXT.1' | translate}}
+            </p>
+            <p>
+                {{'ABOUT.DIALOG.TEXT.2' | translate}}
+            </p>
+            <p>
+                workapp.info@gmail.com
+            </p>
+            <p>
+                {{'ABOUT.DIALOG.TEXT.3' | translate}}
+            </p>
+        </md-dialog-content>
+        <md-dialog-actions layout="row" layout-align="center">
+            <md-button class="md-accent" ng-click="closeDialog()">
+                {{'CLOSE' | translate}}
+            </md-button>
+        </md-dialog-actions>
+    </form>
+</md-dialog>

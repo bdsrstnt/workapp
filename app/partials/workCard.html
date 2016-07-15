@@ -1,0 +1,31 @@
+<md-card class="red" style="width: 290px;">
+    <md-card-header style="background-color: #333333;position: relative; top: 52px; z-index: 20; margin-top: -52px; padding-left: 0px !important; padding-right: 0px !important;">
+        <md-card-header-text>
+            <span class="md-title" layout="column">
+                <h1 class="time-h1">{{job.seconds | prettifySeconds}}</h1>
+            </span>
+        </md-card-header-text>
+    </md-card-header>
+    <md-card-conent class="padded" layout="row" layout-align="center" ng-style="{'background-color': color}">
+        <md-input-container style="z-index: 40 !important;" layout="column" flex="80">
+            <priority-selector model="job.priority"></priority-selector>
+        </md-input-container>
+        <md-input-container style="z-index: 40 !important;" layout="column" flex>
+            <md-switch ng-model="job.active" ng-change="turnOnOff()" aria-label="{{'ON.OFF' | translate}}">
+            </md-switch>
+        </md-input-container>
+    </md-card-conent>
+    <md-card-conent layout="column" layout-align="space-between" ng-style="{'background-color': color}">
+        <md-input-container class="padded"  class="work-card-header" layout="row">
+            <label class="padded">{{'JOB.TITLE' | translate}}</label>
+            <input class="job-title" ng-model="job.jobTitle" type="text" />
+        </md-input-container>
+        <p style="padding-left: 20px;">{{job.addedOn | date:'yyyy.MM.dd @ h:mm:ss a'}}</p>
+        <md-button class="workcard-action-btn" ng-click="showTabDialog($event)">
+            {{'DETAILS' | translate}}
+        </md-button>
+        <md-button layout="row" id="{{jobId}}" ng-click="remove()" class="md-warn workcard-action-btn">
+            {{'JOB.REMOVE' | translate}}
+        </md-button>
+    </md-card-conent>
+</md-card>

@@ -1,0 +1,37 @@
+<md-dialog aria-label="{{'OPTIONS' | translate}}" ng-controller="OptionsDialogCtrl">
+    <form>
+        <md-toolbar style="margin-bottom: 30px;">
+            <div class="md-toolbar-tools">
+                <h2>{{'OPTIONS' | translate}}</h2>
+            </div>
+        </md-toolbar>
+        <md-subheader>
+            <div layout="row">
+                <div flex class="md-subhead">{{'COLOR.PRIMARY' | translate}}</div>
+                <div flex class="md-subhead">{{'COLOR.ACCENT' | translate}}</div>
+            </div>
+        </md-subheader>
+        <md-dialog-content style="width: 700px;" layout="row" layout-padding>
+            <div flex="50" layout="row">
+                <div layout="column">
+                    <md-radio-group ng-model="theme.primaryPalette">
+                        <md-radio-button ng-style="{color: color}" ng-repeat="color in colors" value="{{color}}"> {{color}} </md-radio-button>
+                    </md-radio-group>
+                </div>
+            </div>
+            <div flex="50" layout="row">
+                <div layout="column">
+
+                    <md-radio-group ng-model="theme.accentPalette">
+                        <md-radio-button ng-style="{color: color}" ng-repeat="color in colors" value="{{color}}"> {{color}} </md-radio-button>
+                    </md-radio-group>
+                </div>
+            </div>
+        </md-dialog-content>
+        <md-dialog-actions layout="row">
+            <md-button class="md-accent green" ng-click="closeDialog()" style="margin-right:20px;" >
+                {{'CLOSE' | translate}}
+            </md-button>
+        </md-dialog-actions>
+    </form>
+</md-dialog>
