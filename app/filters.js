@@ -17,6 +17,6 @@ angular.module('filters', [])
                 hours = "0" + hours;
             }
 
-            return hours + ":" + minutes;
+            return hours + ":" + minutes + ":" + seconds;
         };
     });

@@ -11,7 +11,7 @@ angular.module('directives', [])
                 scope.addThisTask;
                 scope.$on('count', function(){
                     if(scope.job.active){
-                        scope.job.seconds += 60;
+                        scope.job.seconds += 1;
                         scope.$apply();
                     }
                 });

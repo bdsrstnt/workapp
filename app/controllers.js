@@ -1,4 +1,4 @@
-angular.module('controllers', ['services', 'timer'])
+angular.module('controllers', ['services'])
     .controller('workCtrl', ['$scope', '$interval', 'localStorageService', '$window', '$mdDialog', '$mdToast', '$translate', 'JobService', '$log', 'SettingsService',
         function($scope, $interval, localStorageService, $window, $mdDialog, $mdToast, $translate, JobService, $log, SettingsService){
             JobService.load();
