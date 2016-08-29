@@ -15,9 +15,7 @@ module.exports = function (options, grunt) {
         "bower_components/angular-messages/angular-messages.js",
         "bower_components/angular-material/angular-material.js",
         "bower_components/angular-route/angular-route.js",
-        "bower_components/moment/moment.js",
-        "bower_components/humanize-duration/humanize-duration.js",
-        "bower_components/angular-timer/dist/angular-timer.js"
+        "bower_components/tock/tock.js"
     ];
 
     var applicationJsFilesToConcatenate = [
