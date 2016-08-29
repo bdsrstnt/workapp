@@ -52,7 +52,7 @@
         </md-input-container>
     </md-subheader>
     <md-content layout="row" layout-xs="column" flex="100" layout-wrap style="background-color: gainsboro;">
-        <work-card ng-repeat="job in jobList | filter:jobTitleSearch | orderBy: settings.orderBy" job="job" index="$index" job-id="id{{$index}}" color="settings.color" style=" margin-right: -8px;"></work-card>
+        <work-card ng-repeat="job in jobList | filter:jobTitleSearch | filter:{removed: false} | orderBy: settings.orderBy" job="job" index="$index" job-id="id{{$index}}" color="settings.color" style=" margin-right: -8px;"></work-card>
     </md-content>
 </md-content>
 </body>

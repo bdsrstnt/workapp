@@ -3,6 +3,7 @@ angular.module('services', [])
         var jobList = [];
         var numberOfJobs = 0;
         var activeJob = null;
+        var lastRemovedJob = null;
 
         function inactivateAllJobs(){
             for(var i = 0; i < jobList.length; ++i){
@@ -20,8 +21,9 @@ angular.module('services', [])
                     addedOn: new Date(),
                     index: numberOfJobs,
                     taskList: [],
-                    jobTitle: '',
-                    priority: 0
+                    jobTitle: numberOfJobs,
+                    priority: 0,
+                    removed: false
                 });
 
                 $log.debug(jobList);
@@ -32,11 +34,21 @@ angular.module('services', [])
                 activeJob = job;
             },
             removeJob: function(index){
-                jobList.splice(index, 1);
-                --numberOfJobs;
-                for(var i in jobList){
-                    jobList[i].index = i;
-                }
+                jobList[index].active = false;
+                jobList[index].removed = true;
+
+                $mdToast.show(
+                    $mdToast.simple()
+                        .textContent($translate.instant('TOAST.UNDO'))
+                        .position('top right')
+                        .action('UNDO')
+                        .highlightAction(true)
+                        .hideDelay(5000)
+                ).then(function(response){
+                    if(response){
+                        jobList[index].removed = false;
+                    }
+                });
             },
             save: function(){
                 localStorageService.set(CONFIG.LOCAL_STORAGE_ID, jobList);

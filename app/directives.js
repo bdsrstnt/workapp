@@ -16,18 +16,7 @@ angular.module('directives', [])
                     }
                 });
                 scope.remove = function(){
-                    var dialog = $mdDialog.confirm().title($translate.instant('WARNING') + ' - ' + scope.job.jobTitle)
-                        .textContent($translate.instant('JOB.REMOVE.DIALOG.TEXT'))
-                        .ok($translate.instant('OK'))
-                        .cancel($translate.instant('CANCEL'))
-                        .openFrom('#' + scope.jobId)
-                        .closeTo('#' + scope.jobId);
-
-                    $mdDialog.show(dialog)
-                        .then(function(){
-                            dialog = undefined;
-                            JobService.removeJob(scope.job.index);
-                        })
+                    JobService.removeJob(scope.job.index);
                 }
 
                 scope.addTask = function(){
