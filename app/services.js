@@ -1,7 +1,6 @@
 angular.module('services', [])
     .service("JobService", ['$log', 'localStorageService', '$mdToast', '$translate', 'SettingsService', function($log, localStorageService, $mdToast, $translate, SettingsService){
         var jobList = [];
-        var numberOfJobs = 0;
         var activeJob = null;
         var lastRemovedJob = null;
 
@@ -13,19 +12,18 @@ angular.module('services', [])
 
         return {
             addJob: function(){
-                ++numberOfJobs;
                 inactivateAllJobs();
+                var nextIndex = jobList.length;
                 jobList.push({
                     active: true,
                     seconds: 0,
                     addedOn: new Date(),
-                    index: numberOfJobs,
+                    index: nextIndex,
                     taskList: [],
-                    jobTitle: numberOfJobs,
+                    jobTitle: nextIndex,
                     priority: 0,
                     removed: false
                 });
-
                 $log.debug(jobList);
             },
             activate: function(job){
@@ -34,13 +32,14 @@ angular.module('services', [])
                 activeJob = job;
             },
             removeJob: function(index){
+                $log.debug(index, jobList[index]);
                 jobList[index].active = false;
                 jobList[index].removed = true;
 
                 $mdToast.show(
                     $mdToast.simple()
                         .textContent($translate.instant('TOAST.UNDO'))
-                        .position('top right')
+                        .position('right')
                         .action('UNDO')
                         .highlightAction(true)
                         .hideDelay(5000)
