@@ -2,10 +2,10 @@ angular.module('controllers', ['services'])
     .controller('workCtrl', ['$scope', '$interval', 'localStorageService', '$window', '$mdDialog', '$mdToast', '$translate', 'JobService', '$log', 'SettingsService',
         function($scope, $interval, localStorageService, $window, $mdDialog, $mdToast, $translate, JobService, $log, SettingsService){
             JobService.load();
+            $scope.workHoursLeft = localStorageService.get(CONFIG.WORK_HOURS_LEFT_ID) || 28800;
             $scope.jobList = JobService.getJobList();
             $scope.settings = SettingsService.getSettings();
 
-            $scope.workHoursLeft = 28800;
             $scope.clock = new Tock({
                 interval: 1000,
                 callback: function(){
@@ -13,6 +13,7 @@ angular.module('controllers', ['services'])
                     $scope.workHoursLeft -= 1;  
                 }
             });
+
             $scope.clock.start();
 
             function SummaryController($scope, $mdDialog, summaryText, sumSeconds, JobService) {
@@ -23,6 +24,7 @@ angular.module('controllers', ['services'])
                     $mdDialog.hide();
                 }
             }
+
             $scope.showSummary = function (ev) {
                 var summary = JobService.getSummary();
                 $mdDialog.show({
@@ -74,6 +76,7 @@ angular.module('controllers', ['services'])
 
             $scope.save = function(){
                 JobService.save();
+                localStorageService.set(CONFIG.WORK_HOURS_LEFT_ID, $scope.workHoursLeft);
             }
 
             $scope.clear = function(){
@@ -95,7 +98,7 @@ angular.module('controllers', ['services'])
             }
 
             $interval(function(){
-                JobService.save();
+                $scope.save();
             }, CONFIG.SAVE_FREQUENCY);
 
 

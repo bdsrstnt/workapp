@@ -9,6 +9,7 @@ var CONFIG = function(){
             CONFIG.LOCAL_STORAGE_ID = LOCAL_STORAGE_ID;
             CONFIG.AUTO_START = true;
             CONFIG.START_DATE_LS_ID = 'asdasdWorkAppStartDateLsIdasdasd';
+            CONFIG.WORK_HOURS_LEFT_ID = 'asdasdWorkAppWorkHoursLeftasdasd'
             CONFIG.NUMBER_OF_TIPS = 8;
             CONFIG.THEME = {
                 primaryPalette: "red",
