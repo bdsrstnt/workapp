@@ -17,6 +17,8 @@
 <md-sidenav class="md-sidenav-left md-whiteframe-z2" style="width: 210px;" md-component-id="left" hide-print="" md-is-locked-open="$mdMedia('gt-xs')" tabindex="-1">
     <md-content  style="background-color: #333333;"  flex="" role="navigation" class="_md flex">
         <ul class="sidemenu">
+            <li class="md-button md-clickable" md-ink-ripple>{{workHoursLeft | prettifySeconds}}
+            </li>
             <li class="md-button md-clickable" md-ink-ripple ng-click="addJob()" aria-label="{{'ADD.JOB' | translate}}">{{'ADD.JOB' | translate}}
             </li>
             <li class="md-button md-clickable" md-ink-ripple ng-click="save()" aria-label="{{'SAVE' | translate}}">{{'SAVE' | translate}}

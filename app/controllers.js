@@ -5,10 +5,12 @@ angular.module('controllers', ['services'])
             $scope.jobList = JobService.getJobList();
             $scope.settings = SettingsService.getSettings();
 
+            $scope.workHoursLeft = 28800;
             $scope.clock = new Tock({
                 interval: 1000,
                 callback: function(){
-                    $scope.$broadcast('count');     
+                    $scope.$broadcast('count');   
+                    $scope.workHoursLeft -= 1;  
                 }
             });
             $scope.clock.start();
