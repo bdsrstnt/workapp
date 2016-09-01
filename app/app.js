@@ -21,6 +21,6 @@ angular.module("workApp", [
     }])
     .config(["$mdThemingProvider", function($mdThemingProvider) {
         $mdThemingProvider.theme("default")
-            .primaryPalette(CONFIG.THEME.primaryPalette)
-            .accentPalette(CONFIG.THEME.accentPalette);
+            .primaryPalette(SETTINGS.THEME.primaryPalette)
+            .accentPalette(SETTINGS.THEME.accentPalette);
     }]);

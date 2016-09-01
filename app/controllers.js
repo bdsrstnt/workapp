@@ -2,15 +2,14 @@ angular.module('controllers', ['services'])
     .controller('workCtrl', ['$scope', '$interval', 'localStorageService', '$window', '$mdDialog', '$mdToast', '$translate', 'JobService', '$log', 'SettingsService',
         function($scope, $interval, localStorageService, $window, $mdDialog, $mdToast, $translate, JobService, $log, SettingsService){
             JobService.load();
-            $scope.workHoursLeft = localStorageService.get(CONFIG.WORK_HOURS_LEFT_ID) || 28800;
+            
             $scope.jobList = JobService.getJobList();
             $scope.settings = SettingsService.getSettings();
 
             $scope.clock = new Tock({
                 interval: 1000,
                 callback: function(){
-                    $scope.$broadcast('count');   
-                    $scope.workHoursLeft -= 1;  
+                    $scope.$broadcast('count');
                 }
             });
 
@@ -75,8 +74,8 @@ angular.module('controllers', ['services'])
             }
 
             $scope.save = function(){
+                $scope.$broadcast('save');
                 JobService.save();
-                localStorageService.set(CONFIG.WORK_HOURS_LEFT_ID, $scope.workHoursLeft);
             }
 
             $scope.clear = function(){
@@ -113,11 +112,11 @@ angular.module('controllers', ['services'])
         }
     ])
     .controller('OptionsDialogCtrl', ["$mdDialog", "$scope", "$window", "JobService", function($mdDialog, $scope, $window, JobService){
-        $scope.theme = CONFIG.THEME;
+        $scope.theme = SETTINGS.THEME;
 
         $scope.closeDialog = function() {
             JobService.save();
-            window.localStorage.setItem(CONFIG.LOCAL_STORAGE_ID, JSON.stringify(CONFIG));
+            window.localStorage.setItem(SETTINGS.LOCAL_STORAGE_ID, JSON.stringify(SETTINGS));
             $window.location.reload();
         }
 

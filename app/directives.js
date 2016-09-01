@@ -209,4 +209,26 @@ angular.module('directives', [])
         }
 
         return ddo;
+    }).directive('workHoursCountdown', function(localStorageService) {
+        var ddo = {
+            scope: {
+            },
+            templateUrl: 'app/partials/workHoursCountdown.html',
+            link: function(scope, elem, attrs){
+                scope.resetWorkHours = function() {
+                    scope.workHoursLeft = CONFIG.FULL_WORK_HOURS;
+                }  
+                scope.workHoursLeft = localStorageService.get(CONFIG.WORK_HOURS_LEFT_ID) || CONFIG.FULL_WORK_HOURS;        
+                scope.$on('count', function(){
+                    scope.workHoursLeft -= 1;  
+                    scope.$apply();
+                });
+
+                scope.$on('save', function(){
+                    localStorageService.set(CONFIG.WORK_HOURS_LEFT_ID, scope.workHoursLeft);
+                });
+            }
+        }
+
+        return ddo;
     })
