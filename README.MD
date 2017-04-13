@@ -5,7 +5,8 @@ Saves data to the browsers localstorage, no backend server needed.
 
 How to run:
 1. npm install
-2. grunt connect
-3. open http://localhost:8000 in your browser
+2. bower install
+3. grunt connect
+4. open http://localhost:8000 in your browser
 
 Optimized for Chrome.
