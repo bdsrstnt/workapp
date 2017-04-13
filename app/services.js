@@ -20,7 +20,7 @@ angular.module('services', [])
                     addedOn: new Date(),
                     index: nextIndex,
                     taskList: [],
-                    jobTitle: nextIndex,
+                    jobTitle: '',
                     priority: 0,
                     removed: false
                 });
@@ -104,6 +104,9 @@ angular.module('services', [])
             },
             activeJob: function(){
                 return activeJob;
+            },
+            adjustActiveJob: function(seconds){
+                activeJob.seconds += seconds;
             }
         }
     }]).service("SettingsService", ['$log', 'localStorageService', '$mdToast', '$translate', function($log, localStorageService, $mdToast, $translate){

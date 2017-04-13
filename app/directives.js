@@ -227,6 +227,10 @@ angular.module('directives', [])
                 scope.$on('save', function(){
                     localStorageService.set(CONFIG.WORK_HOURS_LEFT_ID, scope.workHoursLeft);
                 });
+
+                scope.$on('adjustTime', function(time){
+                    scope.workHoursLeft -= time;
+                });
             }
         }
 

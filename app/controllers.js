@@ -2,6 +2,7 @@ angular.module('controllers', ['services'])
     .controller('workCtrl', ['$scope', '$interval', 'localStorageService', '$window', '$mdDialog', '$mdToast', '$translate', 'JobService', '$log', 'SettingsService',
         function($scope, $interval, localStorageService, $window, $mdDialog, $mdToast, $translate, JobService, $log, SettingsService){
             JobService.load();
+            $scope.focusTime = new Date().getTime();
             
             $scope.jobList = JobService.getJobList();
             $scope.settings = SettingsService.getSettings();
@@ -108,6 +109,27 @@ angular.module('controllers', ['services'])
                     targetEvent: ev,
                     clickOutsideToClose: true
                 });
+            }
+
+            window.onfocus = function(){
+                if($scope.blurTime) {
+                    $log.debug($scope.blurTime - $scope.focusTime);
+                    var diff = $scope.blurTime - $scope.focusTime;
+                    if(diff > 60000) {
+                        diff = diff / 1000;
+                        JobService.adjustActiveJob(diff);
+                        $scope.broadcast('adjustTime', diff);
+                    }
+                }
+                $log.debug('onfocus');
+                $scope.focusTime = new Date().getTime();
+                $log.debug($scope.focusTime);
+            }
+
+            window.onblur = function(){
+                $log.debug('onblur');
+                $scope.blurTime = new Date().getTime();
+                $log.debug($scope.blurTime);
             }
         }
     ])
